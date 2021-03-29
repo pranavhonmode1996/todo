@@ -1,0 +1,52 @@
+{
+    "users": [
+        {
+            "userId": 1111,
+            "userName": "Pranav Honmode",
+            "designation": "Software Engineer",
+            "experience": "2 years"
+        },
+        {
+            "userId": 2222,
+            "userName": "Pratik Honmode",
+            "designation": "Application Engineer",
+            "experience": "4 years"
+        },
+        {
+            "userId": 3333,
+            "userName": "Ajit Kumar",
+            "designation": "Software Engineer",
+            "experience": "2 years"
+        },
+        {
+            "userId": 4444,
+            "userName": "Steve Jobs",
+            "designation": "Owner MD",
+            "experience": "45 years"
+        },
+        {
+            "userId": 5555,
+            "userName": "Mosh Hamedani",
+            "designation": "Web Developer",
+            "experience": "20 years"
+        },
+        {
+            "userId": 6666,
+            "userName": "John Watson",
+            "designation": "Tester",
+            "experience": "6 years"
+        },
+        {
+            "userId": 7777,
+            "userName": "Emma Watson",
+            "designation": "IT Engineer",
+            "experience": "4 years"
+        },
+        {
+            "userId": 8888,
+            "userName": "Samantha",
+            "designation": "Trainee Software Engineer",
+            "experience": "0.1 years"
+        }
+    ]
+}
