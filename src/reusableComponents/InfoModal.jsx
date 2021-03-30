@@ -8,7 +8,7 @@ const InfoModal = (props) => {
 
     useEffect(() => {
         userData.users.map((user) => {
-            if(user.userId === identificationNumber) {
+            if(user.userId == identificationNumber) {
                 setAssignTo(user.userName);
                 setDesignation(user.designation);
                 setExperience(user.experience);

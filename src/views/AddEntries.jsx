@@ -12,20 +12,24 @@ const AddEntries = (props) => {
     const [assignTo, setAssignTo] = useState("");
     const [isEmpty, setIsEmpty] = useState(false);
     const [isConfirm, setIsConfirm] = useState(false);
+    const [idError, setIdError] = useState(false);
 
     const handleTaskSubmit = () => {
         if (!taskName || !taskDetails || !startDate || !endDate || !identificationNumber || !assignTo) {
             setIsEmpty(true);
+        } else if(!userData.users.find(user => user.userId == identificationNumber)) {
+            setIdError(true);
         } else {
-            dispatch(postTask(taskName, taskDetails, startDate, endDate, identificationNumber, assignTo));
             setTaskName("");
             setTaskDetails("");
             setStartDate("");
             setEndDate("");
             setIdentificationNumber("");
             setAssignTo("");
+            dispatch(postTask(taskName, taskDetails, startDate, endDate, identificationNumber, assignTo));
             setIsEmpty(false);
             setIsConfirm(true);
+            setIdError(false);
 
             setInterval(() => {
                 setIsConfirm(false);
@@ -39,7 +43,8 @@ const AddEntries = (props) => {
                 <div className="entriesContainer">
                     {isEmpty && <p>All fields are required</p>}
                     {isConfirm && <p>Task Added Successfully</p>}
-                    <input className="firstInput" type="text" placeholder="Task name" onChange={e => setTaskName(e.target.value)} maxLength={80} />
+                    {idError && <p>Identification Number should be 1111, 2222, ...8888</p>}
+                    <input className="firstInput" type="text" placeholder="Task name" onChange={e => setTaskName(e.target.value.charAt(0).toUpperCase())} maxLength={80} />
                     <textarea placeholder="Task details" rows={2} onChange={e => setTaskDetails(e.target.value)} />
                     <div className="inputs">
                         <input type="date" placeholder="Start date" onChange={e => setStartDate(e.target.value)} />
@@ -48,7 +53,7 @@ const AddEntries = (props) => {
                         <input type="decimal" placeholder="Task assign to" onChange={e => setAssignTo(e.target.value)} />
                     </div>
                     <div className="submitButton">
-                        <button type="button" onClick={handleTaskSubmit}>Add Task</button>
+                        <button type="button" onClick={() => handleTaskSubmit()}>Add Task</button>
                     </div>
                 </div>
             </body>
